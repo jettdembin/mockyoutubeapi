@@ -1,4 +1,4 @@
-Mock Youtube
+# Mock Youtube
 
 This application demonstrates the aquisition of data through Youtube's API.
 
