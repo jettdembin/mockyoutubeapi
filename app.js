@@ -25,15 +25,17 @@ searchForm.addEventListener("submit", function (e) {
         videoDiv.classList.add(name2);
         videoDiv.innerHTML = `
           <div class="card h-100">
-            <img class="card-img-top" src=${video.thumbnails.high.url} alt="" />
-            <div class="card-body">
-              <h4 class="card-title text-center">
-                <a href="#">${video.title}</a>
+            <img class="card-img-top" src=${video.thumbnails.high.url} alt="${video.title}" />
+            <div class="card-body position-relative">
+              <h4 class="card-title text-center fs-5">
+                <a href="${video.thumbnails.high.url}">${video.title}</a>
               </h4>
-              <p class="card-text text-center">${video.channelTitle}</p>
-              <p class="text-center">${new Date(
-                    video.publishTime
-              ).toLocaleDateString()}</p>
+              <div class="my-5 position-relative bottom-25">
+                <p class="card-text text-center fs-6">${video.channelTitle}</p>
+                <p class="text-center">${new Date(
+                      video.publishTime
+                ).toLocaleDateString()}</p>
+              </div>
             </div>
           </div>
         `;
