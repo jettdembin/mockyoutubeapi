@@ -20,12 +20,20 @@ searchForm.addEventListener("submit", function (e) {
         const videoDiv = document.createElement("div");
         videoDiv.classList.add("video-div");
         videoDiv.innerHTML = `
-          <img src=${video.thumbnails.high.url}>
-          <h4>${video.title}</h4>
-          <p>${video.channelTitle}</p>
-          <p>${new Date(
-            video.publishTime
-            ).toLocaleDateString()}</p>
+        <div class="col-lg-6 mb-4">
+          <div class="card h-100">
+              <a href="#"><img class="card-img-top" src=${video.thumbnails.high.url}" alt=""></a>
+              <div class="card-body">
+                  <h4 class="card-title">
+                      <a href="#">${video.title}</a>
+                  </h4>
+                  <p class="card-text">${video.channelTitle}</p>
+                  <p class="text-center">${new Date(
+                    video.publishTime
+                  ).toLocaleDateString()}</p>
+              </div>
+          </div>
+      </div>
         `;
         container.appendChild(videoDiv);
       });
