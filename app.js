@@ -1,4 +1,7 @@
 const searchForm = document.querySelector("#search-form");
+const name1 = "col-lg-6";
+const name2 = "mb-4";
+
 
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -18,22 +21,21 @@ searchForm.addEventListener("submit", function (e) {
       videoData.forEach(function (video) {
         console.log(video);
         const videoDiv = document.createElement("div");
-        videoDiv.classList.add("video-div");
+        videoDiv.className = name1;
+        videoDiv.classList.add(name2);
         videoDiv.innerHTML = `
-        <div class="col-lg-6 mb-4">
           <div class="card h-100">
-              <a href="#"><img class="card-img-top" src=${video.thumbnails.high.url}" alt=""></a>
-              <div class="card-body">
-                  <h4 class="card-title">
-                      <a href="#">${video.title}</a>
-                  </h4>
-                  <p class="card-text">${video.channelTitle}</p>
-                  <p class="text-center">${new Date(
+            <img class="card-img-top" src=${video.thumbnails.high.url} alt="" />
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">${video.title}</a>
+              </h4>
+              <p class="card-text text-center">${video.channelTitle}</p>
+              <p class="text-center">${new Date(
                     video.publishTime
-                  ).toLocaleDateString()}</p>
-              </div>
+              ).toLocaleDateString()}</p>
+            </div>
           </div>
-      </div>
         `;
         container.appendChild(videoDiv);
       });
