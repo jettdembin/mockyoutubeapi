@@ -15,30 +15,28 @@ document.addEventListener("DOMContentLoaded", function(){
             // Typical action to be performed when the document is ready:
       const res = JSON.parse(xhttp.responseText);
       const videoData = res.items.map(function (item) {
-        const id = item.id.videoId;
-        const title = item.snippet.title;
-        const time = item.snippet.publishTime;
         return item;
       });
 
       const container = document.querySelector("#video-divs");
       container.innerHTML = "";
       videoData.forEach(function (video) {
+        const id = video.id.videoId;
+        const title = video.snippet.channelTitle;
+        const time = video.snippet.publishTime;
         const videoDiv = document.createElement("div");
         videoDiv.className = name1;
         videoDiv.classList.add(name2);
         videoDiv.innerHTML = `
           <div class="card h-100">
-            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="100%" height="200px" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
             <div class="card-body position-relative">
               <h4 class="card-title text-center fs-5">
-                <a href="https://www.youtube.com/embed/${video.id.videoId}">${video.snippet.title}</a>
+                <a href="https://www.youtube.com/embed/${id}">${title}</a>
               </h4>
-              <div class="my-5 position-relative bottom-25">
-                <p class="card-text text-center fs-6">${video.snippet.channelTitle}</p>
-                <p class="text-center">${new Date(
-                      video.snippet.publishTime
-                ).toLocaleDateString()}</p>
+              <div class="position-relative">
+                <p class="card-text text-center fs-6">${title}</p>
+                <p class="text-center">${new Date(time).toLocaleDateString()}</p>
               </div>
             </div>
           </div>
@@ -67,30 +65,31 @@ searchForm.addEventListener("submit", function (e) {
             // Typical action to be performed when the document is ready:
       const res = JSON.parse(xhttp.responseText);
       const videoData = res.items.map(function (item) {
-        return item.snippet;
+        return item;
       });
 
       const container = document.querySelector("#video-divs");
       container.innerHTML = "";
       videoData.forEach(function (video) {
+        const id = video.id.videoId;
+        const title = video.snippet.channelTitle;
+        const time = video.snippet.publishTime;
         const videoDiv = document.createElement("div");
         videoDiv.className = name1;
         videoDiv.classList.add(name2);
         videoDiv.innerHTML = `
-          <div class="card h-100">
-            <img class="card-img-top" src=${video.thumbnails.high.url} alt="${video.title}" />
-            <div class="card-body position-relative">
-              <h4 class="card-title text-center fs-5">
-                <a href="${video.thumbnails.high.url}">${video.title}</a>
-              </h4>
-              <div class="my-5 position-relative bottom-25">
-                <p class="card-text text-center fs-6">${video.channelTitle}</p>
-                <p class="text-center">${new Date(
-                      video.publishTime
-                ).toLocaleDateString()}</p>
-              </div>
+        <div class="card h-100">
+          <iframe width="100%" height="200px" src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
+          <div class="card-body position-relative">
+            <h4 class="card-title text-center fs-5">
+              <a href="https://www.youtube.com/embed/${id}">${title}</a>
+            </h4>
+            <div class="position-relative">
+              <p class="card-text text-center fs-6">${title}</p>
+              <p class="text-center">${new Date(time).toLocaleDateString()}</p>
             </div>
           </div>
+        </div>
         `;
         container.appendChild(videoDiv);
       });
