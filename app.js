@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     }
   };
-  const randomQuery = ['surfing', 'sand', 'forest', 'party', 'island', 'dancing', 'sports', 'mountains', 'ocean', 'stars'];
+  const randomQuery = ['surfing', 'sand', 'forest', 'programming', 'island', 'dancing', 'sports', 'mountains', 'ocean', 'stars'];
   const randomVideos = randomQuery[generateRandomNum];
   xhttp.open(
     "GET",
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${randomVideos}&maxResults=24&key=AIzaSyD__xp_1OfaDNZgHmFFW2FHijdQrk00p90`,
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${randomVideos}&maxResults=16&key=AIzaSyD__xp_1OfaDNZgHmFFW2FHijdQrk00p90`,
     true
   );
   xhttp.send();
