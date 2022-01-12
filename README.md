@@ -1,4 +1,4 @@
-# Mock Youtube 
+# SnapTube
 
 This application demonstrates the aquisition of data through Youtube's API. It also shows the use of Bootstrap.
 
