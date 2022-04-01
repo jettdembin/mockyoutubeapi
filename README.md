@@ -4,3 +4,7 @@ This application demonstrates the aquisition of data through Youtube's API. It a
 
 It will return the user the same videos that Youtube would provide with the same query.
 
+## Technologies Used
+
+HTML5 | CSS3 | Javascript | Bootstrap
+
